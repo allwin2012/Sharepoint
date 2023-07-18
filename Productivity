@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+  "height": 250,
+  "width": 450,
+  "hideSelection": false,
+  "fillHorizontally": true,
+  "formatter": {
+    "elmType": "div",
+    "attributes": {
+      "class": "sp-card-container"
+    },
+    "style": {
+      "display": "flex",
+      "justify-content": "center",
+      "align-items": "end"
+    },
+    "children": [
+      {
+        "elmType": "div",
+        "attributes": {
+          "class": "sp-card-defaultClickButton"
+        },
+        "customRowAction": {
+          "action": "defaultClick"
+        }
+      },
+      {
+        "elmType": "div",
+        "attributes": {
+          "class": "ms-bgColor-white sp-css-borderColor-neutralLight sp-card-borderHighlight sp-card-subContainer"
+        },
+        "style": {
+          "display": "flex",
+          "flex-direction": "column",
+          "align-items": "end",
+          "font-size": "18px",
+          "padding-top": "30px",
+          "padding-right": "20px",
+          "font-weight": "400"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": {
+                "operator": "?",
+                "operands": [
+                  {
+                    "operator": ">=",
+                    "operands": [
+                      "[$Title]",
+                      "50%"
+                    ]
+                  },
+                  "ms-fontColor-green",
+                  {
+                    "operator": ":",
+                    "operands": [
+                      {
+                        "operator": "<",
+                        "operands": [
+                          "[$Title]",
+                          "50%"
+                        ]
+                      },
+                      "ms-fontColor-red",
+                      ""
+                    ]
+                  }
+                ]
+              }
+            },
+            "style": {
+              "font-size": "80px",
+              "font-weight": "bold"
+            },
+            "children": [
+              {
+                "elmType": "p",
+                "attributes": {
+                  "title": "[$Title]",
+                  "class": ""
+                },
+                "style": {
+                  "margin-top": ""
+                },
+                "txtContent": "=if([$Title] == '', '–', [$Title])"
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-card-displayColumnContainer"
+            },
+            "children": [
+              {
+                "elmType": "p",
+                "attributes": {
+                  "title": "[$Leavetaken]",
+                  "class": "",
+                  "role": "heading",
+                  "aria-level": "3"
+                },
+                "style": {
+                  "margin-top": "4%",
+                  "font-size": "25px"
+                },
+                "txtContent": "=if([$Leavetaken] == '', '–', [$Leavetaken])"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
